@@ -124,8 +124,8 @@ public class AppList<T extends ViewModel> {
         if (addPosition != -1) {
             if (retry) {
                 final LoadMoreModel remove = (LoadMoreModel) loader;
-                if (remove.getParentTownApi() != null) {
-                    --remove.getParentTownApi().page;
+                if (remove.getListApi() != null) {
+                    --remove.getListApi().page;
                 }
                 remove.setToRetry();
             } else if (clearListFrom > -1) {
@@ -136,7 +136,7 @@ public class AppList<T extends ViewModel> {
                 notifyItemRemovedObservers(addPosition);
                 loader = null;
                 if (noResult) {
-                    --remove.getParentTownApi().page;
+                    --remove.getListApi().page;
                 }
             }
         }

@@ -171,7 +171,7 @@ public class AppRecyclerView extends RecyclerView implements ListObserver {
     public void loaderAdded(final int position, LoadMoreModel loadMoreModel) {
         appAdapter.notifyItemInserted(position);
         if (!autoLoadMore) this.smoothScrollToPosition(position);
-        loadMoreModel.getParentTownApi().loaderAdded();
+        loadMoreModel.getListApi().loaderAdded();
     }
 
     @Override

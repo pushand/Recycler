@@ -1,13 +1,9 @@
 package pw.pushan.recycler;
 
-import android.databinding.BindingAdapter;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.widget.ImageView;
 
 /**
  * Created by pushan on 16/05/17.
@@ -16,7 +12,7 @@ import android.widget.ImageView;
 public class LoadMoreModel implements ViewModel {
 
     public ObservableBoolean isRetry = new ObservableBoolean(false);
-    private ListApi parentTownApi;
+    private ListApi listApi;
     public ObservableField<String> loadingText;
     private String loadingTextValue = "";
     public int loaderColor;
@@ -25,11 +21,11 @@ public class LoadMoreModel implements ViewModel {
     /**
      * Api that needs to be called
      */
-    public LoadMoreModel(ListApi parentTownApi, int loadingText) {
-        this.parentTownApi = parentTownApi;
+    public LoadMoreModel(ListApi listApi, int loadingText) {
+        this.listApi = listApi;
         this.loadingText = new ObservableField<>();
         if (loadingText > 0) {
-            setLoaderText(loadingTextValue = parentTownApi.getContext().getString(loadingText));
+            setLoaderText(loadingTextValue = listApi.getContext().getString(loadingText));
         }
         layoutId = R.layout.row_feed_loader;
     }
@@ -41,7 +37,7 @@ public class LoadMoreModel implements ViewModel {
     public void onRetryClick(View view) {
         isRetry.set(false);
         loadingText.set(loadingTextValue);
-        parentTownApi.loaderAdded();
+        listApi.loaderAdded();
     }
 
     public void stopLoading() {
@@ -55,8 +51,8 @@ public class LoadMoreModel implements ViewModel {
     }*/
 
 
-    public ListApi getParentTownApi() {
-        return parentTownApi;
+    public ListApi getListApi() {
+        return listApi;
     }
 
     @Override
