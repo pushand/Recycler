@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="model"
-                type="pw.pushan.recycler.LoadMoreModel" />
+                type="pw.pushan.recyclerlib.LoadMoreModel" />
     </data>
 <LinearLayout android:orientation="vertical"
               android:layout_width="match_parent"

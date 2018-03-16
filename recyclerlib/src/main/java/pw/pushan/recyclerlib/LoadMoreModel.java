@@ -20,6 +20,8 @@ public class LoadMoreModel implements ViewModel {
 
     /**
      * Api that needs to be called
+     * @param listApi api
+     * @param loadingText text
      */
     public LoadMoreModel(ListApi listApi, int loadingText) {
         this.listApi = listApi;

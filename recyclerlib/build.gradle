@@ -1,19 +1,19 @@
 apply plugin: 'com.android.library'
 
 ext {
-    bintrayRepo = 'android'
-    bintrayName = 'Recycler'
+    bintrayRepo = 'maven'
+    bintrayName = 'recycler'
 
     publishedGroupId = 'pw.pushan.recycler'
-    libraryName = 'Generic Recycler'
-    artifact = 'Recycler'
+    libraryName = 'Android generic recycler'
+    artifact = 'recycler'
 
-    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
+    libraryDescription = 'Generic recycler view with databinding'
 
     siteUrl = 'https://github.com/pushand/Recycler'
     gitUrl = 'https://github.com/pushand/Recycler.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '1.0'
 
     developerId = 'pushan'
     developerName = 'Pushan Dhabalia'
@@ -22,6 +22,7 @@ ext {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
+
 }
 
 android {
@@ -55,5 +56,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    api 'com.android.support:support-v4:27.1.0'
+    api 'com.android.support:recyclerview-v7:27.1.0'
     testCompile 'junit:junit:4.12'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
