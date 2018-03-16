@@ -17,46 +17,7 @@ import java.util.Map;
 public class AppAdapter<T extends ViewModel> extends RecyclerView.Adapter<AppAdapter.ViewHolder> implements AdapterCallback {
 
     private List<T> list;
-    private Map<Integer, Integer[]> mapClickListener;
-    private Map<Integer, Integer[]> mapLongClickListener;
-    private AppClickListener.Callback appClickListenerCallback;
-    private boolean hasClickListener;
-    private boolean hasLongClickListener;
     private LoadMoreModel loadMoreModel;
-
-    public void addClickListener(Map<Integer, Integer[]> mapClickListener, Map<Integer, Integer[]> mapLongClickListener, AppClickListener.Callback appClickListenerCallback) {
-        this.mapClickListener = mapClickListener;
-        this.mapLongClickListener = mapLongClickListener;
-        this.appClickListenerCallback = appClickListenerCallback;
-    }
-
-    private void assignClickListener(View view, int viewType, ViewHolder<ViewDataBinding> holder) {
-        if (mapClickListener != null) {
-            final Iterator<Map.Entry<Integer, Integer[]>> iterator = mapClickListener.entrySet().iterator();
-            while (iterator.hasNext()) {
-                final Map.Entry<Integer, Integer[]> next = iterator.next();
-                if (next.getKey() == viewType) {
-                    final Integer[] value = next.getValue();
-                    for (Integer id : value) {
-                        final AppClickListener appClickListener = new AppClickListener(appClickListenerCallback, holder);
-                        view.findViewById(id).setOnClickListener(appClickListener);
-                    }
-                }
-            }
-        }
-
-        if (mapLongClickListener != null) {
-            final Iterator<Map.Entry<Integer, Integer[]>> iterator = mapLongClickListener.entrySet().iterator();
-            final Map.Entry<Integer, Integer[]> next = iterator.next();
-            if (next.getKey() == viewType) {
-                final Integer[] value = next.getValue();
-                for (Integer id : value) {
-                    final AppClickListener appClickListener = new AppClickListener(appClickListenerCallback, holder);
-                    view.findViewById(id).setOnLongClickListener(appClickListener);
-                }
-            }
-        }
-    }
 
     public List<T> getList() {
         return list;
@@ -93,9 +54,7 @@ public class AppAdapter<T extends ViewModel> extends RecyclerView.Adapter<AppAda
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewDataBinding bind = DataBindingUtil.bind(LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false));
-        final ViewHolder<ViewDataBinding> holder = new ViewHolder<>(bind);
-        assignClickListener(holder.getBinding().getRoot(), viewType, holder);
-        return holder;
+        return new ViewHolder<>(bind);
     }
 
     @Override
