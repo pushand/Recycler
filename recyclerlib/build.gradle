@@ -1,4 +1,28 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'android'
+    bintrayName = 'Recycler'
+
+    publishedGroupId = 'pw.pushan.recycler'
+    libraryName = 'Generic Recycler'
+    artifact = 'Recycler'
+
+    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
+
+    siteUrl = 'https://github.com/pushand/Recycler'
+    gitUrl = 'https://github.com/pushand/Recycler.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'pushan'
+    developerName = 'Pushan Dhabalia'
+    developerEmail = 'pushan@pushan.co.in'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
 
@@ -8,12 +32,15 @@ android {
 
     compileSdkVersion 27
     buildToolsVersion "27.0.1"
+
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -28,6 +55,5 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api 'com.android.support:recyclerview-v7:27.0.1'
     testCompile 'junit:junit:4.12'
 }

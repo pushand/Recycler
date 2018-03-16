@@ -1,4 +1,4 @@
-package pw.pushan.recycler;
+package pw.pushan.recyclerlib;
 
 /**
  * Created by pushan on 12/07/17.

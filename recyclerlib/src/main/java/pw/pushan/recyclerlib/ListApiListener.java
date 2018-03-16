@@ -1,12 +1,8 @@
-package pw.pushan.recycler;
+package pw.pushan.recyclerlib;
 
 import android.content.Context;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import java.util.List;
 
 /**
  * Created by pushan on 09/01/18.

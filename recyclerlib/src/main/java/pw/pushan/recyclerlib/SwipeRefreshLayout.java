@@ -1,4 +1,4 @@
-package pw.pushan.recycler;
+package pw.pushan.recyclerlib;
 
 import android.content.Context;
 import android.support.v4.view.ViewCompat;

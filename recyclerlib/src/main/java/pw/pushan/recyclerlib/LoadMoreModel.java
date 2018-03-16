@@ -1,4 +1,4 @@
-package pw.pushan.recycler;
+package pw.pushan.recyclerlib;
 
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;

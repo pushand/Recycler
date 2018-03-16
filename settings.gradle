@@ -1,1 +1,1 @@
-include ':recycler'
+include ':recycler', ':recyclerlib'

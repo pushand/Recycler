@@ -1,12 +1,7 @@
-package pw.pushan.recycler;
+package pw.pushan.recyclerlib;
 
 import android.content.Context;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.widget.LinearLayout;
+import android.support.v7.widget.*;
 
 import java.util.List;
 
